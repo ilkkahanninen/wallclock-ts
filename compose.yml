@@ -1,0 +1,22 @@
+services:
+  server:
+    build: ./src
+    restart: always
+    ports:
+      - 8001:8001
+    networks:
+      - frontend
+    labels:
+      # web
+      - "traefik.enable=true"
+      - "traefik.http.routers.server.entrypoints=websecure"
+      - "traefik.http.routers.server.rule=Host(`clock.farjanverse.party`) && PathPrefix(`/`)"
+      - "traefik.http.routers.server.tls=true"
+      - "traefik.http.routers.server.tls.certresolver=default"
+    env_file:
+      - ../.digitransit.env
+
+networks:
+  frontend:
+    name: frontend
+    external: true

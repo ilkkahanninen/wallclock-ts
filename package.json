@@ -1,0 +1,25 @@
+{
+  "name": "wallclock-ts",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "frontend:watch": "parcel src/frontend/index.html",
+    "frontend:build": "parcel build src/frontend/index.html --dist-dir src/backend/static --no-cache",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@effect/platform": "^0.50.7",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "effect": "^3.0.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

@@ -1,0 +1,49 @@
+
+.Stoptimes__title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.Stoptimes__code {
+    font-weight: 100;
+    font-size: 60%;
+    border: 1px solid white;
+    padding: 3px 8px;
+    border-radius: 5px;
+}
+
+.Stoptimes__list {
+    font-size: 30px;
+    padding: 0;
+}
+
+.Stoptimes__item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    list-style-type: none;
+    width: 100%;
+
+    border-bottom: 1px solid #231;
+}
+
+.Stoptimes__item--realtime {
+    color: #6c4;
+}
+
+.Stoptimes__routeName {
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.Stoptimes__duration {
+    flex-grow: 1;
+    text-align: right;
+    font-size: 60%;
+}
+
+.Stoptimes__time {
+    font-family: "IBM Plex Mono", monospace;
+    text-align: right;
+}
