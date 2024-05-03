@@ -13,7 +13,8 @@ app.use(router.allowedMethods());
 
 app.use(async (ctx, next) => {
   try {
-    await ctx.send({ root: "/app/static" });
+    console.log("static", ctx.request.url.pathname);
+    await ctx.send({ root: "./static", index: "index.html" });
   } catch {
     next();
   }

@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "frontend:watch": "parcel src/frontend/index.html",
-    "frontend:build": "parcel build src/frontend/index.html --dist-dir src/backend/static --no-cache --no-source-maps",
+    "frontend:build": "parcel build src/frontend/index.html --dist-dir src/backend/static --no-cache --no-scope-hoist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
