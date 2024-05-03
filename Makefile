@@ -1,4 +1,5 @@
 build-frontend:
+	@rm -rf src/backend/static
 	@npm install
 	@npm run frontend:build
 

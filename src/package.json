@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "frontend:watch": "parcel src/frontend/index.html",
-    "frontend:build": "parcel build src/frontend/index.html --dist-dir src/backend/static --no-cache --no-source-maps",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "frontend:watch": "parcel frontend/index.html",
+    "frontend:build": "parcel build frontend/index.html --dist-dir backend/static --no-cache"
   },
   "author": "",
   "license": "ISC",
