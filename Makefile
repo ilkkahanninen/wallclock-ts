@@ -11,3 +11,6 @@ start: build
 
 logs:
 	@docker compose logs -f
+
+deploy:
+	@./deploy.sh
