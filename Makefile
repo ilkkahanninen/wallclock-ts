@@ -3,7 +3,7 @@ build-frontend:
 	@npm install
 	@npm run frontend:build
 
-build: build-frontend
+build:
 	@docker compose build
 
 start: build
