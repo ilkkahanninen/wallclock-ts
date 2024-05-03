@@ -44,9 +44,7 @@ export const Stoptimes = (props: StoptimesProps) => {
 
 const formatDuration = (now: number, stoptime: Stoptime) => {
   const interval = intervalMinutes(now, stoptime.departure);
-  return interval <= 10
-    ? `${stoptime.state === "SCHEDULED" ? "~" : ""}${interval} min`
-    : null;
+  return interval <= 10 ? `${interval} min` : null;
 };
 
 const intervalMinutes = (from: number, to: number) =>
