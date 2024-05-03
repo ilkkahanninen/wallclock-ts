@@ -6,6 +6,7 @@ USER="deploy:$(op read "op://Private/stxx523yesdlbgnhdzdhddafk4/deployment passw
 REPOSITORY="ilkkahanninen/wallclock-ts"
 
 make build-frontend
-git commit -am "Build: $(date)"
-git push
+git add src/backend/static
+git commit -am "Build: $(date)" || true
+git push || true
 curl -u "$USER" "https://ci.farjanverse.party/deploy/$REPOSITORY"
