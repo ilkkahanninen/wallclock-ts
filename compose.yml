@@ -9,10 +9,10 @@ services:
     labels:
       # web
       - "traefik.enable=true"
-      - "traefik.http.routers.server.entrypoints=websecure"
-      - "traefik.http.routers.server.rule=Host(`clock.farjanverse.party`) && PathPrefix(`/`)"
-      - "traefik.http.routers.server.tls=true"
-      - "traefik.http.routers.server.tls.certresolver=default"
+      - "traefik.http.routers.wallclock.entrypoints=websecure"
+      - "traefik.http.routers.wallclock.rule=Host(`wallclock.farjanverse.party`) && PathPrefix(`/`)"
+      - "traefik.http.routers.wallclock.tls=true"
+      - "traefik.http.routers.wallclock.tls.certresolver=default"
     env_file:
       - ../.digitransit.env
 
