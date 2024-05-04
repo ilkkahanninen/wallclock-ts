@@ -11,7 +11,7 @@ export const HSLStopIds = {
 export const getStoptimes = (id: string) =>
   Http.request
     .get(`/api/stoptimes/${id}`)
-    .pipe(Http.client.fetch, Http.response.json) as Effect.Effect<
+    .pipe(Http.client.fetchOk, Http.response.json) as Effect.Effect<
     Stop,
     Http.error.HttpClientError
   >;

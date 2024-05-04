@@ -2,7 +2,7 @@ import { Stop, Stoptime } from "../backend/digitransit";
 import { bem } from "./bem";
 import { formatHhMm } from "./state/clock";
 import { getStoptimes } from "./state/hsl";
-import { useSchedule } from "./state/useSchedule";
+import { renderScheduled, useSchedule } from "./state/useSchedule";
 import "./styles/Stoptimes.css";
 
 const cx = bem("Stoptimes");
@@ -12,8 +12,16 @@ export type BusStopProps = {
 };
 
 export const BusStop = (props: BusStopProps) => {
-  const { value: stoptimes } = useSchedule(getStoptimes(props.id), "1 minute");
-  return stoptimes ? <Stoptimes {...stoptimes} /> : null;
+  const stoptimes = useSchedule(getStoptimes(props.id), "1 minute");
+  return renderScheduled(
+    stoptimes,
+    (stoptimes) => <Stoptimes {...stoptimes} />,
+    (error) => (
+      <div className="error">
+        Pysäkkitietoja ei saatu ladattua ({error.message})
+      </div>
+    )
+  );
 };
 
 export type StoptimesProps = Stop;
