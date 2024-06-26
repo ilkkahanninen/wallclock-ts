@@ -1,0 +1,19 @@
+.BluOS__container {
+    display: flex;
+    background: #111;
+    padding: 30px;
+}
+
+ul.BluOS__titles {
+    list-style: none;
+}
+
+ul.BluOS__titles li:first-child {
+    font-size: 300%;
+    margin-bottom: 10px;
+}
+
+ul.BluOS__titles li:nth-child(2) {
+    font-size: 150%;
+    margin-bottom: 20px;
+}

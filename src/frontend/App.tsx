@@ -1,3 +1,4 @@
+import { BluOS } from "./BluOs";
 import { Clock } from "./Clock";
 import { BusStop } from "./Stoptimes";
 import { Weather } from "./Weather";
@@ -15,8 +16,11 @@ export const App = () => {
         <Clock />
         <Weather />
       </div>
-      <BusStop id={HSLStopIds.postipuistoToSouth} />
-      <BusStop id={HSLStopIds.postiljooninkatuToEast} />
+      <BluOS />
+      <div className="top">
+        <BusStop id={HSLStopIds.postipuistoToSouth} />
+        <BusStop id={HSLStopIds.postiljooninkatuToEast} />
+      </div>
       {fullscreen.available && !fullscreen.requested && (
         <button onClick={fullscreen.request}>Fullscreen</button>
       )}
