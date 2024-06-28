@@ -6,6 +6,7 @@ import { Weather } from "./Weather";
 import { HSLStopIds } from "./state/hsl";
 
 import "./styles/Clock.css";
+import "./styles/Stoptimes.css";
 
 export const App = () => {
   return (
@@ -14,10 +15,12 @@ export const App = () => {
         <Clock />
         <Weather />
       </div>
-      <BluOS />
-      <div className="top">
-        <BusStop id={HSLStopIds.postipuistoToSouth} />
-        <BusStop id={HSLStopIds.postiljooninkatuToEast} />
+      <div className="main">
+        <BluOS />
+        <div className="Stoptimes__container">
+          <BusStop id={HSLStopIds.postipuistoToSouth} />
+          <BusStop id={HSLStopIds.postiljooninkatuToEast} />
+        </div>
       </div>
     </Background>
   );

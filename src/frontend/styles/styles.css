@@ -8,12 +8,22 @@ body {
     font-style: normal;  
 
     padding: 20px;
+
+    user-select: none;
 }
 
 .top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.main {
+    min-height: calc(100vh - 194px);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .error {

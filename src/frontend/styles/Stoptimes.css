@@ -1,21 +1,36 @@
+.Stoptimes__container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.Stoptimes {
+    flex-grow: 1;
+}
 
 .Stoptimes__title {
     display: flex;
     gap: 10px;
     align-items: center;
+    margin-top: 0px;
 }
 
 .Stoptimes__code {
-    font-weight: 100;
+    display: none;
+    /* font-weight: 100;
     font-size: 60%;
     border: 1px solid white;
     padding: 3px 8px;
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 
 .Stoptimes__list {
     font-size: 30px;
     padding: 0;
+    margin: 0;
 }
 
 .Stoptimes__item {
@@ -26,7 +41,6 @@
     list-style-type: none;
     width: 100%;
 
-    border-bottom: 1px solid #231;
 }
 
 .Stoptimes__item--realtime {

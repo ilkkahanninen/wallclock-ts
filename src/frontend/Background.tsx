@@ -31,10 +31,8 @@ export const Background = (props: React.PropsWithChildren) => {
       <div
         className="Background__image"
         style={{ backgroundImage: image ? `url("${image}")` : "none" }}
-        onClick={fullscreen.available ? fullscreen.request : undefined}
-        onTouchStart={fullscreen.available ? fullscreen.request : undefined}
       />
-      <div className="Background__content">
+      <div className="Background__content" onDoubleClick={fullscreen.request}>
         <BgContext.Provider value={context}>
           {props.children}
         </BgContext.Provider>

@@ -9,7 +9,7 @@ import "./styles/BluOS.css";
 const cx = bem("BluOS");
 
 export const BluOS = () => {
-  const currentStatus = useSchedule(playerStatus, "5 seconds");
+  const currentStatus = useSchedule(playerStatus, "1 seconds");
 
   const background = useContext(BgContext);
   useEffect(() => {
@@ -26,7 +26,6 @@ export const BluOS = () => {
             return Option.none;
           }),
           onNone: () => {
-            console.log("got none");
             background.clearImage();
             return Option.none;
           },

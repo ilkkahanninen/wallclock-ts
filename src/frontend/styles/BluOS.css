@@ -2,6 +2,7 @@
     display: flex;
     background: rgba(0, 0, 0, 0.8);
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .BluOS__container img {
@@ -16,6 +17,7 @@ ul.BluOS__titles {
 
 ul.BluOS__titles li:first-child {
     font-size: 250%;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -25,5 +27,5 @@ ul.BluOS__titles li:nth-child(2) {
 }
 
 ul.BluOS__titles li:nth-child(3) {
-    font-size: 150%;
+    font-size: 200%;
 }

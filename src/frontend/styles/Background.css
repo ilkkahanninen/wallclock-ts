@@ -6,6 +6,7 @@
     right: 0;
     background-size: cover;
     filter: blur(400px);
+    animation: zoom-in-zoom-out 60s ease infinite;
 }
 
 .Background__content {
@@ -15,3 +16,15 @@
     right: 20px;
     z-index: 10;
 }
+
+@keyframes zoom-in-zoom-out {
+    0% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.5, 1.5);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }

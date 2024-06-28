@@ -30,7 +30,7 @@ export const Stoptimes = (props: StoptimesProps) => {
   const now = secondsSinceMidnight();
 
   return (
-    <div>
+    <div className="Stoptimes">
       <h2 {...cx({ title: true })}>
         {props.name} <span {...cx({ code: true })}>{props.code}</span>
       </h2>
