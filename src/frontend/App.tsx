@@ -1,17 +1,15 @@
+import { Background } from "./Background";
 import { BluOS } from "./BluOs";
 import { Clock } from "./Clock";
 import { BusStop } from "./Stoptimes";
 import { Weather } from "./Weather";
-import { useFullscreen } from "./state/fullscreen";
 import { HSLStopIds } from "./state/hsl";
 
 import "./styles/Clock.css";
 
 export const App = () => {
-  const fullscreen = useFullscreen();
-
   return (
-    <div>
+    <Background>
       <div className="top">
         <Clock />
         <Weather />
@@ -21,9 +19,6 @@ export const App = () => {
         <BusStop id={HSLStopIds.postipuistoToSouth} />
         <BusStop id={HSLStopIds.postiljooninkatuToEast} />
       </div>
-      {fullscreen.available && !fullscreen.requested && (
-        <button onClick={fullscreen.request}>Fullscreen</button>
-      )}
-    </div>
+    </Background>
   );
 };

@@ -38,7 +38,7 @@ export const Stoptimes = (props: StoptimesProps) => {
         {props.stoptimes.map((stop, index) => (
           <li key={index} {...cx({ item: stop.realtime ? "realtime" : true })}>
             <span {...cx({ routeName: true })}>{stop.routeName}</span>
-            <span {...cx({ headsign: true })}>{stop.headsign}</span>
+            <span {...cx({ headsign: true })}>{stop.shortHeadsign}</span>
             <span {...cx({ duration: true })}>{formatDuration(now, stop)}</span>
             <span {...cx({ time: true })}>
               {formatStoptime(stop.departure)}

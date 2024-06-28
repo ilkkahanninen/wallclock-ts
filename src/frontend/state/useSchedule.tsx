@@ -39,8 +39,8 @@ export const useSchedule = <A, E>(
 
 export const renderScheduled = <A, E>(
   scheduled: Scheduled<A, E>,
-  renderSuccess: (a: A) => JSX.Element,
-  renderFailure?: (e: E) => JSX.Element
+  renderSuccess: (a: A) => JSX.Element | null,
+  renderFailure?: (e: E) => JSX.Element | null
 ): JSX.Element | null =>
   pipe(
     scheduled,

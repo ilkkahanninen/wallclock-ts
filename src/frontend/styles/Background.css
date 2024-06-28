@@ -1,0 +1,17 @@
+.Background__image {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    filter: blur(400px);
+}
+
+.Background__content {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+}
