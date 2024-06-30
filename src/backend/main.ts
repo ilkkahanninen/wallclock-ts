@@ -1,11 +1,21 @@
 import { isHttpError } from "jsr:@oak/commons@0.7/http_errors";
 import { Oak } from "./deps.ts";
 import { getStoptimes } from "./digitransit.ts";
+import { analyzeColors } from "./colorAnalysis.ts";
 
 const router = new Oak.Router();
 
 router.get("/api/stoptimes/:id", async (ctx) => {
   ctx.response.body = await getStoptimes(ctx.params.id);
+});
+
+router.get("/api/colors", async (ctx) => {
+  const src = ctx.request.url.searchParams.get("src");
+  if (src) {
+    ctx.response.body = await analyzeColors(src);
+  } else {
+    ctx.response.status = 400;
+  }
 });
 
 const app = new Oak.Application();

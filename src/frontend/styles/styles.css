@@ -1,3 +1,7 @@
+:root {
+    --accent-color: #ff0;
+}
+
 body {
     background: black;
     color: white;

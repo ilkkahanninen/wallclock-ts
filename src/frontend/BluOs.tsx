@@ -1,5 +1,5 @@
 import { Either, Option, pipe } from "effect";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { BgContext } from "./Background";
 import { bem } from "./bem";
 import { playerStatus } from "./state/bluos";
@@ -10,6 +10,7 @@ const cx = bem("BluOS");
 
 export const BluOS = () => {
   const currentStatus = useSchedule(playerStatus, "1 seconds");
+  const image = useRef<HTMLImageElement>(null);
 
   const background = useContext(BgContext);
   useEffect(() => {
@@ -39,7 +40,7 @@ export const BluOS = () => {
     (status) =>
       status && (
         <div {...cx({ container: true })}>
-          <img {...cx({ cover: true })} src={status.image} />
+          <img {...cx({ cover: true })} src={status.image} ref={image} />
           <ul {...cx({ titles: true })}>
             {status.titles.map((title, i) => (
               <li key={i}>{title}</li>

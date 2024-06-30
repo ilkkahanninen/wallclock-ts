@@ -1,4 +1,7 @@
 {
   "deno.enable": true,
-  "deno.enablePaths": ["src/backend"]
+  "deno.enablePaths": ["src/backend"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "never"
+  }
 }

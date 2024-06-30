@@ -41,10 +41,11 @@
     list-style-type: none;
     width: 100%;
 
+    transition: color 1s;
 }
 
 .Stoptimes__item--realtime {
-    color: #6c4;
+    color: var(--accent-color);
 }
 
 .Stoptimes__routeName {
