@@ -9,6 +9,7 @@
 
 .Stoptimes {
     flex-grow: 1;
+    text-wrap: nowrap;
 }
 
 .Stoptimes__title {
@@ -61,4 +62,10 @@
 .Stoptimes__time {
     font-family: "IBM Plex Mono", monospace;
     text-align: right;
+}
+
+@media screen and (max-width: 1300px) {
+    .Stoptimes__list {
+        font-size: 20px;
+    }
 }

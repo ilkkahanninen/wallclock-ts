@@ -1,5 +1,7 @@
 :root {
     --accent-color: #ff0;
+    --over-background-color: #fff;
+    --over-background-stroke-color: #000;
 }
 
 body {

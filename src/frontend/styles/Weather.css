@@ -1,4 +1,6 @@
 .Weather__current {
+    color: var(--over-background-color);
     font-size: 400%;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-shadow: 0 1px 3px var(--over-background-stroke-color);
+    transition: all 1s;
 }

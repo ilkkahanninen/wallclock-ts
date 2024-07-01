@@ -3,6 +3,8 @@ import { Canvas } from "./deps.ts";
 
 export type DynamicColors = {
   accent: string;
+  overBackground: string;
+  overBackgroundInvert: string;
 };
 
 export const analyzeColors = cachedStringInput(
@@ -11,18 +13,10 @@ export const analyzeColors = cachedStringInput(
     if (!data) throw new Error("Could not read pixel data");
 
     const hsl = getRGBValues(data).map(RGBToHSL);
-    const hues = hsl.filter((h) => h[1] > 25 && h[2] > 25).map((h) => h[0]);
-    const mostCommonHue = getMostCommonValue(hues);
-
-    const saturations = hsl
-      .filter((h) => h[0] === mostCommonHue)
-      .map((h) => h[1]);
-    const averageSaturation = Math.round(average(saturations));
-    const maxSaturation = max(saturations);
-    const saturation = average([averageSaturation, maxSaturation]);
 
     return {
-      accent: `hsl(${mostCommonHue}, ${saturation}%, 66%)`,
+      accent: calculateAccentColor(hsl),
+      ...calculateOverBackgroundColor(hsl),
     };
   }
 );
@@ -34,6 +28,34 @@ const getImageData = async (src: string) => {
   const ctx = canvas.getContext("2d");
   ctx?.drawImage(image, 0, 0, image.width(), image.height(), 0, 0, size, size);
   return ctx?.getImageData(0, 0, canvas.width, canvas.height).data;
+};
+
+const calculateAccentColor = (hsl: HSLColor[]): string => {
+  const hues = hsl
+    .filter((h) => h[1] >= 35 && h[2] > 25 && h[2] <= 65)
+    .map((h) => h[0]);
+
+  if (hues.length === 0) {
+    return "#ccc";
+  }
+
+  const mostCommonHue = getMostCommonValue(hues);
+
+  const saturations = hsl
+    .filter((h) => h[0] === mostCommonHue)
+    .map((h) => h[1]);
+  const averageSaturation = Math.round(average(saturations));
+  const maxSaturation = max(saturations);
+  const saturation = average([averageSaturation, maxSaturation]);
+
+  return `hsl(${mostCommonHue}, ${saturation}%, 66%)`;
+};
+
+const calculateOverBackgroundColor = (hsl: HSLColor[]) => {
+  const avgLightness = average(hsl.map((h) => h[2]));
+  return avgLightness >= 50
+    ? { overBackground: "black", overBackgroundInvert: "white" }
+    : { overBackground: "white", overBackgroundInvert: "black" };
 };
 
 const getRGBValues = (data: Uint8ClampedArray): Uint8ClampedArray[] => {

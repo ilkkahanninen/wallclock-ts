@@ -36,6 +36,14 @@ export const Background = (props: React.PropsWithChildren) => {
   React.useEffect(() => {
     const root = document.documentElement;
     root.style.setProperty("--accent-color", colors?.accent || "#6c4");
+    root.style.setProperty(
+      "--over-background-color",
+      colors?.overBackground || "#fff"
+    );
+    root.style.setProperty(
+      "--over-background-stroke-color",
+      colors?.overBackgroundInvert || "#000"
+    );
   }, [colors]);
 
   return (
