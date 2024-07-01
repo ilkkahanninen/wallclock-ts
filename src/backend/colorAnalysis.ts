@@ -18,7 +18,7 @@ export const analyzeColors = cachedStringInput(
       .filter((h) => h[0] === mostCommonHue)
       .map((h) => h[1]);
     const averageSaturation = Math.round(average(saturations));
-    const maxSaturation = Math.max(...saturations);
+    const maxSaturation = max(saturations);
     const saturation = average([averageSaturation, maxSaturation]);
 
     return {
@@ -28,10 +28,11 @@ export const analyzeColors = cachedStringInput(
 );
 
 const getImageData = async (src: string) => {
+  const size = 160;
   const image = await Canvas.loadImage(src);
-  const canvas = Canvas.createCanvas(image.width(), image.height());
+  const canvas = Canvas.createCanvas(size, size);
   const ctx = canvas.getContext("2d");
-  ctx?.drawImage(image, 0, 0);
+  ctx?.drawImage(image, 0, 0, image.width(), image.height(), 0, 0, size, size);
   return ctx?.getImageData(0, 0, canvas.width, canvas.height).data;
 };
 
@@ -102,3 +103,5 @@ const average = (ns: number[]): number =>
   ns.length > 0 ? sum(ns) / ns.length : NaN;
 
 const sum = (ns: number[]): number => ns.reduce((a, b) => a + b);
+
+const max = (ns: number[]): number => ns.reduce((a, b) => (a > b ? a : b));
