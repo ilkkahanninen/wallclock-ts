@@ -2,7 +2,7 @@ import { parse } from "@lowlighter/xml/parse";
 import { Effect } from "effect";
 
 const bluOSPlayerIP: string | null = (() => {
-  const match = location.search.match(/bluos=([\d.]+)/);
+  const match = location.search.match(/bluos=(.+)/);
   return match ? match[1] : null;
 })();
 
