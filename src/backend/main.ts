@@ -1,7 +1,13 @@
 import { isHttpError } from "jsr:@oak/commons@0.7/http_errors";
+import { analyzeColors } from "./colorAnalysis.ts";
+import {
+  addConfirmation,
+  resolveConfirmation,
+  waitForConfirmation,
+  waitForResult,
+} from "./confirmation.ts";
 import { Oak } from "./deps.ts";
 import { getStoptimes } from "./digitransit.ts";
-import { analyzeColors } from "./colorAnalysis.ts";
 
 const router = new Oak.Router();
 
@@ -16,6 +22,34 @@ router.get("/api/colors", async (ctx) => {
   } else {
     ctx.response.status = 400;
   }
+});
+
+router.post("/api/confirm", async (ctx) => {
+  const msg = await ctx.request.body.text();
+  if (msg) {
+    ctx.response.body = await addConfirmation(msg);
+  } else {
+    ctx.response.status = 400;
+  }
+});
+
+router.get("/api/confirm/:id", async (ctx) => {
+  const id = parseInt(ctx.params.id);
+  ctx.response.body = await waitForResult(id);
+});
+
+router.get("/api/confirm", async (ctx) => {
+  ctx.response.body = await waitForConfirmation();
+});
+
+router.post("/api/confirm/:id/accept", (ctx) => {
+  const id = parseInt(ctx.params.id);
+  resolveConfirmation(id, true);
+});
+
+router.post("/api/confirm/:id/reject", (ctx) => {
+  const id = parseInt(ctx.params.id);
+  resolveConfirmation(id, false);
 });
 
 const app = new Oak.Application();
